@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       model:
-        description: 'Your Model Number'
+        description: 'S911U1UEU6AYH9'
         required: true
 
       recovery_link:
-        description: 'Enter the Direct Download Link (.img / .lz4 / .zip / .tar):'
+        description: 'https://filebin.net/bvmbcs7kbxqqzgtq'
         required: true   
               
 jobs:
@@ -18,7 +18,7 @@ jobs:
       contents: write    
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
           
@@ -27,7 +27,7 @@ jobs:
           GOFILE=1 bash patch-recovery.sh "${{ github.event.inputs.recovery_link }}" "${{ github.event.inputs.model }}"
       
       - name: Uploading Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: "Fastbootd-patched-recovery-${{ github.event.inputs.model }}"
           path: output/*.tar
