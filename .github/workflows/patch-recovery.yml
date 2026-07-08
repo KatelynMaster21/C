@@ -8,7 +8,7 @@ on:
         required: true
 
       recovery_link:
-        description: 'https://filebin.net/9s47tjexf87tokck'
+        description: 'https://filebin.net/338elohjzckfvvgs'
         required: true   
               
 jobs:
